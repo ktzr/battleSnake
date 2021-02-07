@@ -3,7 +3,7 @@ from typing import Dict
 import numpy as np
 
 import util
-from constants import PREDICTION_DEPTH
+from constants import PREDICTION_DEPTH, ENEMY_TAIL, MY_TAIL, ENEMY_NEXT_MOVE, FOOD, MY_BODY, ENEMY_BODY, ENEMY_HEAD, FREE_SPACE
 from util import get_pos, distance
 
 
@@ -107,14 +107,3 @@ class Snake:
         return pos in self.body
 
 
-# todo Should be an Enum
-FREE_SPACE = 0
-FOOD = 1
-
-MY_BODY = 2
-MY_TAIL = 3
-
-ENEMY_HEAD = 4
-ENEMY_BODY = 5
-ENEMY_TAIL = 6
-ENEMY_NEXT_MOVE = 7

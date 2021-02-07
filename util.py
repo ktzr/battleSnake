@@ -2,7 +2,7 @@ import random
 from typing import List
 
 import constants
-from constants import LEFT, UP, DOWN, RIGHT
+from constants import LEFT, UP, DOWN, RIGHT, ENEMY_TAIL, MY_TAIL, ENEMY_NEXT_MOVE
 
 
 def get_pos(x, y=None) -> (int, int):
@@ -14,9 +14,9 @@ def get_pos(x, y=None) -> (int, int):
 
 
 def distance(a, b) -> float:
-    xA, yA = get_pos(a)
-    xB, yB = get_pos(b)
-    return abs(xB - xA) + abs(yB - yA)
+    x_a, y_a = get_pos(a)
+    x_b, y_b = get_pos(b)
+    return abs(x_b - x_a) + abs(y_b - y_a)
 
 
 def directions(a, b) -> List[str]:
@@ -51,12 +51,12 @@ def predict_moves(board, snake):
     me = board.me
     if snake != me:
         curr_pos = snake.head
-        moves = board.safe_moves(curr_pos, safe_content=[board.MY_TAIL, board.ENEMY_TAIL, board.ENEMY_NEXT_MOVE]).values()
+        moves = board.safe_moves(curr_pos, safe_content=[ENEMY_TAIL, ENEMY_NEXT_MOVE]).values()
         for i in range(constants.PREDICTION_DEPTH):
             for pos in moves:
                 if should_yield(snake, me, i + 1, distance(me.head, pos)):
                     board.board[pos] = board.ENEMY_NEXT_MOVE + i
-                moves = board.safe_moves(pos, safe_content=[board.MY_TAIL, board.ENEMY_TAIL]).values()
+                moves = board.safe_moves(pos, safe_content=[MY_TAIL, ENEMY_TAIL]).values()
 
 
 def should_yield(there_snake, me, there_dist, my_dist):
@@ -102,7 +102,7 @@ def move_right(x, y):
 
 
 def pick_move(possible_moves):
-    if type(possible_moves) == type(dict()):
+    if isinstance(possible_moves, dict):
         return random.choice(list(possible_moves.keys()))
     else:
         return random.choice(list(possible_moves))
