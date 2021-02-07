@@ -7,7 +7,7 @@ from constants import PREDICTION_DEPTH, ENEMY_TAIL, MY_TAIL, ENEMY_NEXT_MOVE, FO
 from util import get_pos, distance
 
 
-class Game:
+class GameBoard:
     def __init__(self, data):
         self.data = data
         self.width = data['board']['width']

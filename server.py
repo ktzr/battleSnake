@@ -4,7 +4,7 @@ import cherrypy
 import bfs
 import constants
 import util
-from game import Game, ENEMY_NEXT_MOVE
+from gameboard import GameBoard, ENEMY_NEXT_MOVE
 
 
 class Battlesnake(object):
@@ -63,7 +63,7 @@ class Battlesnake(object):
 
 
 def find_next_move(data):
-    board = Game(data)
+    board = GameBoard(data)
     should_try_to_get_food = True
     safe_content = []
 

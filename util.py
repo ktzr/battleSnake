@@ -55,7 +55,7 @@ def predict_moves(board, snake):
         for i in range(constants.PREDICTION_DEPTH):
             for pos in moves:
                 if should_yield(snake, me, i + 1, distance(me.head, pos)):
-                    board.board[pos] = board.ENEMY_NEXT_MOVE + i
+                    board.board[pos] = ENEMY_NEXT_MOVE + i
                 moves = board.safe_moves(pos, safe_content=[MY_TAIL, ENEMY_TAIL]).values()
 
 
