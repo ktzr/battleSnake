@@ -1,0 +1,2 @@
+CherryPy==18.5.0
+numpy
