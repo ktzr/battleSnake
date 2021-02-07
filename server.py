@@ -78,7 +78,7 @@ def find_next_move(data):
     move = None
     if len(possible_moves) == 1:
         print(f"Only one possible picking that: {possible_moves}")
-        move = possible_moves.keys()[0]
+        move = util.pick_move(possible_moves.keys())
     if move is None and should_try_to_get_food and len(possible_moves) > 0:
         print(f"Looking for food: {possible_moves}")
         move = util.find_food(board, possible_moves)
