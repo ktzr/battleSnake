@@ -58,7 +58,7 @@ class Battlesnake(object):
         else:
             print("lost")
             self.lost += 1
-        print("END")
+        print(f"END: win/los {self.won}/{self.lost}")
         return "ok"
 
 
@@ -90,7 +90,6 @@ def find_next_move(data):
         # no good moves picking a random move todo add weights to pick the least bad, bad move
         print("No safe move possible, picking random move")
         move = util.pick_move(constants.ALL_MOVES)
-    print(f"Move: {move}")
     return move
 
 
