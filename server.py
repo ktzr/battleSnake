@@ -80,11 +80,11 @@ def find_next_move(data):
         print(f"Only one possible picking that: {possible_moves}")
         move = possible_moves.keys()[0]
     if move is None and should_try_to_get_food and len(possible_moves) > 0:
-        print("Looking for food")
+        print(f"Looking for food: {possible_moves}")
         move = util.find_food(board, possible_moves)
     if move is None and len(possible_moves) > 0:
         # multiple possible moves picking one at random todo add weights to pick the least bad, ok move
-        print("No multiple moves, picking random one")
+        print(f"No multiple moves, picking random one: {possible_moves}")
         move = util.pick_move(possible_moves)
     if move is None:
         # no good moves picking a random move todo add weights to pick the least bad, bad move
