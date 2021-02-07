@@ -77,7 +77,7 @@ def find_next_move(data):
 
     move = None
     if len(possible_moves) == 1:
-        print("Only one possible picking that")
+        print(f"Only one possible picking that: {possible_moves}")
         move = possible_moves[0]
     if move is None and should_try_to_get_food and len(possible_moves) > 0:
         print("Looking for food")

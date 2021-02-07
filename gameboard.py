@@ -33,7 +33,7 @@ class GameBoard:
     def add_my_snake_to_board(self):
         for pos in self.me.body:
             self.board[pos] = MY_BODY
-        print("if not {snake.is_full_length} and {self.board[snake.tail]} == FREE_SPACE : to set tail")  # todo im not sure on this
+        print(f"if not {self.me.is_full_length} and {self.board[self.me.tail]} == FREE_SPACE : to set tail")  # todo im not sure on this
         if not self.me.is_full_length and self.board[self.me.tail] == FREE_SPACE:
             self.board[self.me.tail] = MY_TAIL
 
